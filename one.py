@@ -61,6 +61,13 @@ class Interpreter:
     def resolve(self, tokens):
         while len(tokens) > 1:
             result, used = self.resolve_most_important(tokens)
+            # result = 6
+            # used = [2, *, 3]
+            # remove all 3 tokens from the initial list
+            # replace with the result.
+            # This should split the token list into 2, excluding
+            # al 3 items and then return L1 + [result] + L2
+
             inserted = False
             for p in used:
                 if p in tokens:
